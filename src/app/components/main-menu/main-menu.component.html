@@ -6,16 +6,24 @@
         <p class="title-main">Backoffice</p> 
 
         <mat-nav-list>
-            <a mat-list-item *ngFor="let nav of menu_tabs" [routerLink]="nav.href" >
-                <mat-icon>{{nav.icon}}</mat-icon> 
-                <span class="span-sidebar"> {{nav.name}} </span>
-            </a>
+          <nav>
+            <ul>
+              <li>
+                <a style="text-align: center;" mat-list-item *ngFor="let nav of menu_tabs" [routerLink]="nav.href" >
+                  <mat-icon>{{nav.icon}}</mat-icon> 
+                  <span class="span-sidebar"> {{nav.name}} </span>
+              </a>
+              </li>
+            </ul>
+          </nav>
+          
+            
           </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content >
       <div class="my-drawer-content" *ngIf="showoutlet">
         
-        <div class="display-content">
+        <div >
             <div>
                 
                 <button class="icon-btn" mat-icon-button [matMenuTriggerFor]="menu" color="basic" aria-label="Example icon button with a menu icon">
