@@ -1,0 +1,44 @@
+<mat-drawer-container class="my-container">
+    <mat-drawer #drawer class="my-drawer" mode="side" position="start" [disableClose]="true" opened>
+        <img src="../../../assets/imgs/logo_svg.svg" alt="Logotipo" style="width: 150x; height: 150px; margin-top: 10%;" draggable="false">
+
+        <h2 class="title-main">Library</h2>
+        <p class="title-main">Backoffice</p> 
+
+        <mat-nav-list>
+            <a mat-list-item *ngFor="let nav of menu_tabs" [routerLink]="nav.href" >
+                <mat-icon>{{nav.icon}}</mat-icon> 
+                <span class="span-sidebar"> {{nav.name}} </span>
+            </a>
+          </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content >
+      <div class="my-drawer-content" *ngIf="showoutlet">
+        
+        <div class="display-content">
+            <div>
+                
+                <button class="icon-btn" mat-icon-button [matMenuTriggerFor]="menu" color="basic" aria-label="Example icon button with a menu icon">
+                    <mat-icon class="icon-person">person_pin</mat-icon>
+                  </button> 
+
+                  <mat-menu #menu="matMenu">
+                    <img src="../../../assets/imgs/logo_svg.svg" 
+                    alt="Logotipo" 
+                    style="width: 150x; height: 150px; margin-top: 10%;" 
+                    draggable="false">
+                    <p><strong>Nome:</strong> Person Name</p>
+                  </mat-menu>
+                
+                </div>
+                
+            
+            <!-- <img src="../../../assets/imgs/logo_projeto.png" alt="teste" style="width: 100%; height: 100%;" draggable="false"> -->
+        </div>
+      </div>
+      <div class="my-drawer-content-2" *ngIf="showoutlet">
+        <router-outlet style=""></router-outlet>
+      </div>
+      
+    </mat-drawer-content>
+</mat-drawer-container> 
